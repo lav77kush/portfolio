@@ -189,6 +189,7 @@ const mobileMenuToggle = () => {
   navLinks.classList.toggle("mobile-active");
 };
 
+
 // Add mobile menu styles
 const mobileStyles = document.createElement("style");
 mobileStyles.textContent = `
@@ -233,6 +234,20 @@ if (window.innerWidth <= 768) {
   mobileBtn.addEventListener("click", mobileMenuToggle);
   navContainer.appendChild(mobileBtn);
 }
+
+const menuBtn = document.querySelector(".mobile-menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("mobile-active");
+
+  // Change icon (bars ↔ close)
+  if (navLinks.classList.contains("mobile-active")) {
+    menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+  } else {
+    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  }
+});
 
 // Skills animation on scroll
 const skillCategories = document.querySelectorAll(".skill-category");
